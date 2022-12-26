@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.close{
+    height: 0px;
+    transition: height ease 0.5s;
+    
+}
+.close ul li{
+    display: none;
+}
+.open{
+    height: 200px;
+    transition: height ease 0.5s;
+    
+    
+}
