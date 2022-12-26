@@ -4,9 +4,9 @@ import axios from 'axios';
 function Form() {
     const [from, setFrom] = useState("Janak Puri");
     const [to, setTo] = useState("Tagore Garden");
-    const [price, setPrice] = useState(25)
     const key = 'JuNkCXmB4VXmxBy3rsUkrspPpnYYj';
     const url = `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${from}&destinations=${to}&departure_time=now&key=JuNkCXmB4VXmxBy3rsUkrspPpnYYj`; 
+    let luggage = false;
     
    function updateFrom(e){
        let newFrom = e.target.value;
@@ -16,6 +16,10 @@ function Form() {
    function updateTo(e){
         let newTo = e.target.value; 
         setTo(newTo); 
+    }
+
+    function toggleLuggage(){
+        luggage = !luggage
     }
 
     function onSubmit(e){
@@ -29,9 +33,27 @@ function Form() {
     }
 
     function calculatePrice(d){
-        console.log(d);
-        if(d<2){
+    let price = 25;
+
+        if(d<=2 && !luggage){
+            console.log(price, luggage);
+        }
+        else if(d<=2 && luggage){
+           price = price+7.50;
             
+            console.log(price+"2",luggage);
+
+        }
+        else if(d>2 && !luggage){
+           price = price + (8*(d-2))
+            console.log(price);
+            console.log(price+" 3",luggage);
+
+        }
+        else if(d>2 && luggage){
+            price = price + (8*(d-2)) +7.5;
+
+            console.log(price+"4");
         }
     }
 
@@ -55,7 +77,7 @@ function Form() {
           <br />
           <div className="flex">
             <label className="mx-2">Luggage: </label>
-            <input type="checkbox" />
+            <input onClick={toggleLuggage} type="checkbox" />
           </div>
           <button
           onClick={onSubmit}
@@ -68,7 +90,7 @@ function Form() {
           </button>
         </div>
       </form>
-      
+
     </>
   );
 }
