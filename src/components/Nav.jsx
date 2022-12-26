@@ -1,6 +1,6 @@
 import { useState } from "react";
 function Nav() {
-    const [show, setShow]= useState(true);
+    const [show, setShow]= useState(false);
   return (
     <div className="bg-orange-500  px-4 text-center py-2  mx-auto">
       <div className="flex justify-between ">
@@ -11,7 +11,7 @@ function Nav() {
         <img onClick={()=>{
             setShow(!show);
         }}
-          className="w-8"
+          className="w-8 cursor-pointer"
           src="https://cdn.iconscout.com/icon/premium/png-256-thumb/mace-4605620-3803695.png"
           alt="Gada"
         />

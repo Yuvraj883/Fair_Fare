@@ -592,6 +592,10 @@ video {
   width: 100vw;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .justify-between {
   justify-content: space-between;
 }
