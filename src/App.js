@@ -33,10 +33,10 @@ function App() {
   function onSubmit(e){
       e.preventDefault();
       axios.get(DMAurl).then((res)=>{
-          let distance = 5;
-          console.log(res?.data?.rows[0]?.elements[0]?.distance);
-          distance = distance.split(" ");
+          let distance = res?.data?.rows[0]?.elements[0]?.distance.text;
+          distance = distance.split(" "); 
           distance = distance[0];
+          console.log(distance);
           calculatePrice(distance);
       })
       axios.get(WAurl).then(response=>{
