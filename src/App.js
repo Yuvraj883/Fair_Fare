@@ -1,10 +1,26 @@
-import { useState } from "react";
+import {useRef, useState, useEffect } from "react";
+import mapboxgl from 'mapbox-gl';
 import axios from "axios";
 import "./input.css";
 import Nav from "./components/Nav";
 import Form from "./components/Form";
 import Result from "./components/Result";
+mapboxgl.accessToken = 'pk.eyJ1IjoieXV2cmFqMDAxIiwiYSI6ImNsYzlqemRhaTFxOXYzcHA2a3Nid3ZxbzMifQ.CjcPv7HXGfVNugWpahix9Q'
 function App() {
+  useEffect(() => {
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
+    container: mapContainer.current,
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [lng, lat],
+    zoom: zoom
+    });
+    });
+const mapContainer = useRef(null);
+const map = useRef(null);
+const [lng, setLng] = useState(-70.9);
+const [lat, setLat] = useState(42.35);
+const [zoom, setZoom] = useState(9);
   const [from, setFrom] = useState("Janak Puri");
   const [to, setTo] = useState("Tagore Garden");
   const [distance, setDistance] = useState(1);
@@ -82,6 +98,15 @@ function App() {
       price = price + 8 * (distance - 2) + 7.5;
 
     }
+    let start = new Date();
+
+    
+    if(time>="02:00:00 AM" ){
+      console.log("greater");
+    }
+    else{
+      console.log("lesser");
+    }
   }
 
   return (
@@ -95,6 +120,9 @@ function App() {
         updateTo={updateTo}
         onSubmit={onSubmit}
       />
+      <div>
+<div ref={mapContainer} className="map-container h-[400px]" />
+</div>
       <Result
       distance={distance}
       duration={duration}

@@ -3,7 +3,7 @@ import React from "react";
 function Result({distance, duration, price}){
     return(
         <>
-        <div className="flex items-center px-8 md:justify-center ">
+        <div className="flex items-center px-8 sm:justify-center ">
             <div className="w-[60vh]">
                 <img src="https://www.bajajautofinance.com/uploads/vehicles/Picture11.jpg" alt="auto-rickshaw" />
             </div>
