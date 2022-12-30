@@ -16,12 +16,13 @@ function App() {
   const [zoom, setZoom] = useState(9);
   const [from, setFrom] = useState("Janak Puri");
   const [to, setTo] = useState("Tagore Garden");
-  const [distance, setDistance] = useState(1);
-  const [duration, setDuration] = useState(1);
+  const [distance, setDistance] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [price, setPrice] = useState(0);
 
   //DMA = Distance Matrix API
-  const DMAkey = "JuNkCXmB4VXmxBy3rsUkrspPpnYYj";
-  const DMAurl = `https://api.distancematrix.ai/maps/api/distancematrix/jsonorigins=${to}&destinations=${from}&departure_time=now&key=${DMAkey}`;
+  const DMAkey = "0jUTeaH2h3JJwFWsUvfk3PnzHvY76";
+  const DMAurl = `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${to}&destinations=${from}&departure_time=now&key=${DMAkey}`;
 
   //WA = Weather API
   const WAkey = "b99b652d448e47e5a48a226c5ed84910";
@@ -78,9 +79,9 @@ function App() {
       setDistance(d);
 
       dur = dur.split(" ");
-      dur = dur[0];
+      dur = Number(dur[0]);
       durTrf = durTrf.split(" ");
-      durTrf = durTrf[0];
+      durTrf = Number(durTrf[0]);
 
       setDuration((dur + durTrf) / 2);
       calculatePrice(d);
@@ -94,24 +95,27 @@ function App() {
       console.log(response.data.weather);
     });
   }
-  let price = 25;
+  
   function calculatePrice(distance) {
-    price = 25;
+    setPrice(25);
     let date = new Date();
     let time = date.toLocaleTimeString();
     //  time = time/(1000*60*60*24*365);
     console.log("Date: " + time);
 
     if (distance <= 2 && !luggage) {
-      price = price;
+      setPrice(0);
+      setPrice(25);
     } else if (distance <= 2 && luggage) {
-      price = price + 7.5;
+      setPrice(price+7.5);
 
       console.log(price + "2", luggage);
     } else if (distance > 2 && !luggage) {
-      price = price + 8 * (distance - 2);
+      let newPrice = price + 8 * (distance - 2);
+      setPrice(newPrice);
     } else if (distance > 2 && luggage) {
-      price = price + 8 * (distance - 2) + 7.5;
+     let newPrice = price + 8 * (distance - 2) + 7.5;
+     setPrice(newPrice);
     }
     let start = new Date();
 
