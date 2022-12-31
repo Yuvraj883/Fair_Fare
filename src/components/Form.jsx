@@ -29,7 +29,7 @@ function Form(props) {
           >
             Search
             <img src="https://cdn-icons-png.flaticon.com/512/1183/1183845.png"
-            className="inline w-6 mx-2 font-size text-xs"/>
+            className="inline w-6 mx-2 font-size text-xs" alt="Search icon"/>
           </button>
         </div>
       </form>

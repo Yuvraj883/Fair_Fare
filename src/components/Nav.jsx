@@ -3,17 +3,22 @@ function Nav() {
     const [show, setShow]= useState(false);
   return (
     <div className="bg-orange-500  px-4 text-center py-2  mx-auto">
-      <div className="flex justify-between ">
-        <div>
-        <p className="text-center  font-bold text-white">Jai Bajrang Bali</p>
+      <div className="flex justify-between">
+        <div className="flex">
+        <p className="text-center  font-bold text-dark">Jai Bajrang Bali</p>
+        <img 
+          className="w-8 cursor-pointer right-0"
+          src="https://cdn.iconscout.com/icon/premium/png-256-thumb/mace-4605670-3803747.png"
+          alt="Gada"
+        />
         </div>
-        <div>
+        <div className="left-0">
         <img onClick={()=>{
             setShow(!show);
         }}
-          className="w-8 cursor-pointer"
-          src="https://cdn.iconscout.com/icon/premium/png-256-thumb/mace-4605620-3803695.png"
-          alt="Gada"
+          className="w-8 cursor-pointer right-0"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png"
+          alt="hamburger-icon"
         />
         </div>
       </div>

@@ -13,7 +13,7 @@ function App() {
   const map = useRef(null);
   const [lng, setLng] = useState(77.0801664);
   const [lat, setLat] = useState(28.639232);
-  const [zoom, setZoom] = useState(9);
+  const [zoom, setZoom] = useState(14);
   const [from, setFrom] = useState("Janak Puri");
   const [to, setTo] = useState("Tagore Garden");
   const [distance, setDistance] = useState(0);
@@ -121,7 +121,8 @@ function App() {
      setPrice(0);
      setPrice(newPrice);
     }
-    let start = new Date();
+    // let start = new Date();
+    setZoom(14)
 
     if (time >= "02:00:00 AM") {
       console.log("greater");
