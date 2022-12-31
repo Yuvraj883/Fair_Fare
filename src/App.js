@@ -11,8 +11,8 @@ mapboxgl.accessToken =
 function App() {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(77.0801664);
-  const [lat, setLat] = useState(28.639232);
+  const [lng, setLng] = useState(77.2177);
+  const [lat, setLat] = useState(28.6304);
   const [zoom, setZoom] = useState(14);
   const [from, setFrom] = useState("Janak Puri");
   const [to, setTo] = useState("Tagore Garden");
@@ -32,8 +32,8 @@ function App() {
 
   useEffect(() => {
     const successCallback = (position) => {
-      setLat(position.coords.latitude); 
-      setLng (position.coords.longitude);
+      setLat(position?.coords?.latitude); 
+      setLng (position?.coords?.longitude);
     };
 
     const errorCallback = (error) => {
@@ -143,7 +143,7 @@ function App() {
         onSubmit={onSubmit}
       />
       <div>
-        <div ref={mapContainer} className="map-container h-[400px] w-[80%] m-auto m-4" />
+        <div ref={mapContainer} className="map-container h-[400px] w-[80%] content-center m-4" />
       </div>
       <Result distance={distance} duration={duration} price={prc} />
       <Footer />
