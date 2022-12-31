@@ -18,7 +18,7 @@ function App() {
   const [to, setTo] = useState("Tagore Garden");
   const [distance, setDistance] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [price, setPrice] = useState(0);
+  const [prc, setPrice] = useState(0);
 
   //DMA = Distance Matrix API
   const DMAkey = "0jUTeaH2h3JJwFWsUvfk3PnzHvY76";
@@ -96,6 +96,7 @@ function App() {
     });
   }
   
+  let price=25;
   function calculatePrice(distance) {
     setPrice(25);
     let date = new Date();
@@ -107,14 +108,17 @@ function App() {
       setPrice(0);
       setPrice(25);
     } else if (distance <= 2 && luggage) {
-      setPrice(price+7.5);
+      setPrice(0);
+      setPrice(25+7.5);
 
       console.log(price + "2", luggage);
     } else if (distance > 2 && !luggage) {
       let newPrice = price + 8 * (distance - 2);
+      setPrice(0);
       setPrice(newPrice);
     } else if (distance > 2 && luggage) {
      let newPrice = price + 8 * (distance - 2) + 7.5;
+     setPrice(0);
      setPrice(newPrice);
     }
     let start = new Date();
@@ -140,7 +144,7 @@ function App() {
       <div>
         <div ref={mapContainer} className="map-container h-[400px] w-[80%] m-auto m-4" />
       </div>
-      <Result distance={distance} duration={duration} price={price} />
+      <Result distance={distance} duration={duration} price={prc} />
       <Footer />
     </div>
   );
