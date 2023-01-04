@@ -10,7 +10,6 @@ function Result({distance, duration, price}){
             <div >
             <p className="text-lg font-mono antialiased">Distance: {distance}Km</p>
             <p className="text-lg font-mono antialiased">Duration: {duration}min</p>
-            <p className="text-lg font-mono antialiased">Weather</p>
             <p className="text-lg font-mono antialiased">Price: &#x20B9;{price}</p>
             </div>
         </div>
