@@ -143,7 +143,7 @@ function App() {
         onSubmit={onSubmit}
       />
       <div>
-        <div ref={mapContainer} className="map-container h-[400px] container w-[80%] content-center m-4" />
+        <div ref={mapContainer} className="map-container h-[400px] container w-[80%] content-center mx-auto" />
       </div>
       <Result distance={distance} duration={duration} price={prc} />
       <Footer />
