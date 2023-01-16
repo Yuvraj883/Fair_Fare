@@ -21,7 +21,7 @@ function App() {
   const [prc, setPrice] = useState(0);
 
   //DMA = Distance Matrix API
-  const DMAkey = "0jUTeaH2h3JJwFWsUvfk3PnzHvY76";
+  const DMAkey = "fIA3YQTY5U0j3HBlhcnZIxVgdGI83";
   const DMAurl = `https://api.distancematrix.ai/maps/api/distancematrix/json?origins=${to}&destinations=${from}&departure_time=now&key=${DMAkey}`;
 
   //WA = Weather API
@@ -32,6 +32,7 @@ function App() {
 
   useEffect(() => {
     const successCallback = (position) => {
+      console.log(position?.coords?.latitude)
       setLat(position?.coords?.latitude); 
       setLng (position?.coords?.longitude);
     };
