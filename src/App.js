@@ -98,39 +98,39 @@ function App() {
   }
   
   let price=25;
-  function calculatePrice(distance) {
-    setPrice(25);
-    let date = new Date();
-    let time = date.toLocaleTimeString();
-    //  time = time/(1000*60*60*24*365);
-    console.log("Date: " + time);
+  // function calculatePrice(distance) {
+  //   setPrice(25);
+  //   let date = new Date();
+  //   let time = date.toLocaleTimeString();
+  //   //  time = time/(1000*60*60*24*365);
+  //   console.log("Date: " + time);
 
-    if (distance <= 2 && !luggage) {
-      setPrice(0);
-      setPrice(25);
-    } else if (distance <= 2 && luggage) {
-      setPrice(0);
-      setPrice(25+7.5);
+  //   if (distance <= 2 && !luggage) {
+  //     setPrice(0);
+  //     setPrice(25);
+  //   } else if (distance <= 2 && luggage) {
+  //     setPrice(0);
+  //     setPrice(25+7.5);
 
-      console.log(price + "2", luggage);
-    } else if (distance > 2 && !luggage) {
-      let newPrice = price + 8 * (distance - 2);
-      setPrice(0);
-      setPrice(newPrice);
-    } else if (distance > 2 && luggage) {
-     let newPrice = price + 8 * (distance - 2) + 7.5;
-     setPrice(0);
-     setPrice(newPrice);
-    }
-    // let start = new Date();
-    setZoom(14)
+  //     console.log(price + "2", luggage);
+  //   } else if (distance > 2 && !luggage) {
+  //     let newPrice = price + 8 * (distance - 2);
+  //     setPrice(0);
+  //     setPrice(newPrice);
+  //   } else if (distance > 2 && luggage) {
+  //    let newPrice = price + 8 * (distance - 2) + 7.5;
+  //    setPrice(0);
+  //    setPrice(newPrice);
+  //   }
+  //   // let start = new Date();
+  //   setZoom(14)
 
-    if (time >= "02:00:00 AM") {
-      console.log("greater");
-    } else {
-      console.log("lesser");
-    }
-  }
+  //   if (time >= "02:00:00 AM") {
+  //     console.log("greater");
+  //   } else {
+  //     console.log("lesser");
+  //   }
+  // }
 
   return (
     <div className="App">
